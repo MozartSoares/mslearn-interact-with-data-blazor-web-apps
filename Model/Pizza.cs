@@ -36,7 +36,8 @@ namespace BlazingPizza
 
         public string GetFormattedTotalPrice()
         {
-            return GetTotalPrice().ToString("0.00");
+            var pt = System.Globalization.CultureInfo.CreateSpecificCulture("pt-BR");
+            return $"R$ {GetTotalPrice().ToString("N2", pt)}";
         }
     }
 }

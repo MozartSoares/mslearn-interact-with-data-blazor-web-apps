@@ -15,6 +15,10 @@
 
         public string ImageUrl { get; set; }
 
-        public string GetFormattedBasePrice() => BasePrice.ToString("0.00");
+        public string GetFormattedBasePrice()
+        {
+            var pt = System.Globalization.CultureInfo.CreateSpecificCulture("pt-BR");
+            return $"R$ {BasePrice.ToString("N2", pt)}";
+        }
     }
 }
